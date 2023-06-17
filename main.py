@@ -13,7 +13,7 @@ async def help(_, message):
 
 @app.on_message(filters.command("start"))
 async def start(_, message):
-    await app.send_message(message.chat.id,"Bienvenido al TramaBot no hay K-RDMMs que se escape\n Estoy en fase alfa tengan paciencia queda mucho por implementar")
+    await app.send_message(message.chat.id,"Bienvenido al TramaBot no hay K-RDMM que se escape\nEstoy en fase alfa tened paciencia queda mucho por implementar")
 
 #Command to send to the group the number of tramas for each person
 @app.on_message(filters.command("listaTramas"))
@@ -24,8 +24,8 @@ async def listaTrama(_, message):
         # Reading from json file
         pjson = json.loads(openfile.read())
     people=pjson["People"]
+    #Send the number of tramas to the group of each person 
     for p in people:
-        print(p["Nombre"])
         text+="@"+str(p["Nombre"])+" Ha tramado "+str(p["Tramas"])+" veces\n"
     await app.send_message(chat_id,text)
 
